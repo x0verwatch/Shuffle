@@ -1,7 +1,7 @@
 version: '3'
 services:
   frontend:
-    image: cydeacode/shuffle_frontend:v1
+    image: cydeacode/shuffle-frontend:v1
     container_name: shuffle-frontend
     hostname: shuffle-frontend
     ports:
@@ -15,7 +15,7 @@ services:
     depends_on:
       - backend
   backend:
-    image: cydeacode/shuffle_backend:v1
+    image: cydeacode/shuffle-backend:v1
     container_name: shuffle-backend
     hostname: ${BACKEND_HOSTNAME}
     ports:
@@ -32,7 +32,7 @@ services:
       - SHUFFLE_FILE_LOCATION=/shuffle-files
     restart: unless-stopped
   orborus:
-    image: cydeacode/shuffle_orborus:v1
+    image: cydeacode/shuffle-orborus:v1
     container_name: shuffle-orborus
     hostname: shuffle-orborus
     networks:
@@ -57,7 +57,7 @@ services:
     security_opt:
       - seccomp:unconfined
   opensearch:
-    image: cydeacode/shuffle_opensearch:v1
+    image: cydeacode/shuffle-opensearch:v1
     hostname: shuffle-opensearch
     container_name: shuffle-opensearch
     env_file: .env
